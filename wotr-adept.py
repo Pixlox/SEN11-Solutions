@@ -20,16 +20,16 @@ def buildWordDict(words):
 def weightedChoice(wordDict):
     total = sum(wordDict.values())
     randVal = random.uniform(0, total)
-    cumulative = 0
+    a = 0
     for word, weight in wordDict.items():
-        cumulative += weight
-        if randVal < cumulative:
+        a += weight
+        if randVal < a:
             return word
 
 def generateSentence(wordDict, startWord, length=10):
     currentWord = startWord
     sentence = [currentWord]
-    for _ in range(length - 1):
+    for j in range(length - 1):
         if currentWord in wordDict:
             nextWord = weightedChoice(wordDict[currentWord])
             sentence.append(nextWord)
