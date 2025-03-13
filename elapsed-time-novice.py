@@ -8,7 +8,7 @@ def getTimezoneDifference(offset1, offset2):
     return difference
 
 
-timezonesInput = input("Enter two timezone offsets separated by a comma in UTC (e.g., '-5,1'): ")
+timezonesInput = input("Please enter two timezones separated by a comma in UTC (e.g., '-5,1'): ")
 offset1, offset2 = [tz.strip() for tz in timezonesInput.split(',')]
 
 try:
