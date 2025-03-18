@@ -2,9 +2,9 @@ from datetime import datetime
 
 def validateDate(dateText):
     try:
-        return datetime.strptime(dateText, '%d-%m-%Y')
+        return datetime.strptime(dateText, '%d/%m/%Y')
     except ValueError:
-        raise ValueError("Bad input, needs to be DD-MM-YYYY")
+        raise ValueError("Bad input, needs to be DD/MM/YYYY")
 
 def calculateAge(birthDate):
     today = datetime.now()
@@ -15,7 +15,7 @@ def calculateAge(birthDate):
     return years, months, days
 
 
-birthDateInput = input("Enter your birthday (DD-MM-YYYY): ")
+birthDateInput = input("Enter your birthday (DD/MM/YYYY): ")
 birthDate = validateDate(birthDateInput)
 years, months, days = calculateAge(birthDate)
 print(f"Your age is {years} years, {months} months, and {days} days.")
