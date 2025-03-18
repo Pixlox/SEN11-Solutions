@@ -1,2 +1,2 @@
-# SEN11 Answers
-SEN 11 answers :)
+# SEN11 Solutions
+SEN 11 solutions :)
