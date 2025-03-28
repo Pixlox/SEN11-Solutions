@@ -7,13 +7,13 @@ def main():
     won = False
 
     while count < 6 and not won:
-        guess = getGuess(wordlist)
-        won = checkGuess(guess, word)
+        guess = getGuess()
         count += 1
+        won = Check(guess, word)
 
     displayMessage(word, won, count)
 
-def getGuess(wordlist):
+def getGuess():
     valid = False
     while not valid:
         guess = input("Enter your guess: ").lower().strip()
@@ -22,32 +22,32 @@ def getGuess(wordlist):
             continue
 
         i = 0
-        found = False
-        while i < len(wordlist) and not found:
+        while i < len(wordlist):
             if guess == wordlist[i]:
-                found = True
+               valid = True
             i += 1
 
-        if found:
-            valid = True
-        else:
+        if not valid:
             print("Invalid guess")
 
     return guess
 
-def checkGuess(guess, word):
-    correct = True
-    if guess == word:
-        return correct
-
+def Check(guess, word):
     correct = False
-    for i in range(5):
-        if guess[i] == word[i]:
-            print(f"{guess[i]} is in the right position")
-        elif guess[i] in word:
-            print(f"{guess[i]} is in the word but wrong position")
-        else:
-            print(f"{guess[i]} is not in the word")
+    if guess == word:
+        correct = True
+    else:
+        i = 0
+        while i < 5:
+            j = 0
+            while j < 5:
+                if guess[i] == word[j]:
+                    if i == j:
+                        print(f"{guess[i]} is in the right position")
+                    else:
+                        print(f"{guess[i]} is in the wrong position")
+                j += 1
+            i += 1
 
     return correct
 
