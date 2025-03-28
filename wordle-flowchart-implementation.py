@@ -9,7 +9,7 @@ def main():
     while count < 6 and not won:
         guess = getGuess()
         count += 1
-        won = Check(guess, word)
+        won = check(guess, word)
 
     displayMessage(word, won, count)
 
@@ -17,14 +17,12 @@ def getGuess():
     valid = False
     while not valid:
         guess = input("Enter your guess: ").lower().strip()
-        if len(guess) != 5:
-            print("Invalid guess")
-            continue
-
         i = 0
+
         while i < len(wordlist):
             if guess == wordlist[i]:
-               valid = True
+                valid = True
+                i = len(wordlist)
             i += 1
 
         if not valid:
@@ -32,7 +30,7 @@ def getGuess():
 
     return guess
 
-def Check(guess, word):
+def check(guess, word):
     correct = False
     if guess == word:
         correct = True
