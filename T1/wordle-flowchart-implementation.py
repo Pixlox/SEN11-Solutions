@@ -3,6 +3,7 @@ from wordlist import wordlist
 
 def main():
     word = random.choice(wordlist)
+    print(word)
     count = 0
     won = False
 
@@ -18,7 +19,7 @@ def getGuess():
     while not valid:
         guess = input("Enter your guess: ").lower().strip()
         i = 0
-
+        
         while i < len(wordlist):
             if guess == wordlist[i]:
                 valid = True
@@ -30,8 +31,10 @@ def getGuess():
 
     return guess
 
+
 def check(guess, word):
     correct = False
+
     if guess == word:
         correct = True
     else:
